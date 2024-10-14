@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+Upload
+{% endblock %}
+
+{% block content %}
+<div class="">
+    <form method="POST" id="resource_form" class="flex flex-col gap-4" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input class="w-fit" id="file" name="file" type="file">
+        <input id="link" class="rounded" type="text" placeholder="Link (optional)">
+        <button type="submit" class="p-2 text-white bg-indigo-500 hover:bg-indigo-400 w-fit">Upload resource</button>
+    </form>
+    {% if messages %}
+    <ul class="mt-5 messages">
+        {% for message in messages %}
+            <li{% if "error" in message.tags %} class="text-red-500"{% elif "success" in message.tags %} class="text-green-500"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    {% tailwind_css %}
+  </head>
+  <body>
+    <nav class="flex items-center gap-2 p-2 bg-gray-100">
+      <a href="/" class="p-2 border rounded bg-indigo-500 text-white hover:bg-indigo-400">
+          Upload resources
+      </a>
+      <a href="/resources" class="p-2 border rounded bg-indigo-500 text-white hover:bg-indigo-400"
+      >
+        See resources
+      </a>
+      <a href="/search" class="p-2 border rounded bg-indigo-500 text-white hover:bg-indigo-400"
+      >
+        Search
+      </a>
+    </nav>
+    <main class="p-6">{% block content %} {% endblock %}</main class="p-6">
+  </body>
+</html>
